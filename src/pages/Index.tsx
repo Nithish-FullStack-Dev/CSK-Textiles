@@ -1,12 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import AnnouncementBar from "@/components/AnnouncementBar";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import CategoryGrid from "@/components/CategoryGrid";
+import ProductCarousel from "@/components/ProductCarousel";
+import WhyChooseSection from "@/components/WhyChooseSection";
+import AboutPreview from "@/components/AboutPreview";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import CTABanner from "@/components/CTABanner";
+import Footer from "@/components/Footer";
+
+import { categories } from "@/data/categories";
+import { getNewArrivals } from "@/data/products";
+import { testimonials } from "@/data/testimonials";
 
 const Index = () => {
+  const featuredCategories = categories.filter(c => c.featured);
+  const newArrivals = getNewArrivals();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <AnnouncementBar />
+      <Header />
+      <main>
+        <HeroSection />
+        <CategoryGrid categories={featuredCategories} />
+        <ProductCarousel products={newArrivals} />
+        <WhyChooseSection />
+        <AboutPreview />
+        <TestimonialsSection testimonials={testimonials} />
+        <CTABanner />
+      </main>
+      <Footer />
     </div>
   );
 };

@@ -1,0 +1,42 @@
+export const categories = [
+  {
+    id: 'suiting',
+    name: 'Suiting',
+    description: 'Premium wool and blended fabrics',
+    image: '/placeholder.svg',
+    link: '/collections/suiting',
+    featured: true
+  },
+  {
+    id: 'shirting',
+    name: 'Shirting',
+    description: 'Fine cotton and linen blends',
+    image: '/placeholder.svg',
+    link: '/collections/shirting',
+    featured: true
+  },
+  {
+    id: 'wedding-sherwani',
+    name: 'Wedding & Sherwani',
+    description: 'Brocade, silk, and embroidered groomwear',
+    image: '/placeholder.svg',
+    link: '/collections/wedding-sherwani',
+    featured: true
+  },
+  {
+    id: 'tuxedo',
+    name: 'Tuxedo',
+    description: 'Black-tie dinner jacket fabrics',
+    image: '/placeholder.svg',
+    link: '/collections/suiting',
+    featured: false
+  },
+  {
+    id: 'indo-western',
+    name: 'Indo-Western',
+    description: 'Modern fusion formal wear',
+    image: '/placeholder.svg',
+    link: '/collections/suiting',
+    featured: false
+  }
+];
