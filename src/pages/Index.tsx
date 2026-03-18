@@ -34,19 +34,21 @@ const Index = () => {
       {/* <AnnouncementBar /> */}
       <Header />
       <main>
-        <HeroSection />
-        <EthosSection />
+        <div className="relative h-[200vh] z-30">
+          <HeroSection />
+          <EthosSection />
+        </div>
         <CategoryGrid categories={featuredCategories} />
         {/* <ProductCarousel products={newArrivals} /> */}
         <ServicesGrid />
+        <TestimonialsSection testimonials={testimonials} />
         <div ref={chooseRef} className="h-[200vh]">
           <WhyChooseSection scrollYProgress={scrollYProgress} />
-          <AboutPreview scrollYProgress={scrollYProgress} />
+          <AboutPreview />
         </div>
-        <InstagramReels />
+        {/* <InstagramReels /> */}
         <VisitUs />
-        <TestimonialsSection testimonials={testimonials} />
-        <div className="h-[150vh] relative z-30">
+        <div className="h-[160vh] relative z-30">
           <CTABanner />
           <Footer />
         </div>

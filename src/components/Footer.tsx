@@ -6,16 +6,18 @@ const Footer = () => {
     <footer className="bg-muted border-t border-border sticky top-[40vh] z-10 inset-0 h-[60vh]">
       <div className="container mx-auto px-4 py-12">
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-center w-[80%] mx-auto">
           {/* Logo + Brand */}
           <div>
-            <img src="/images/logo.png" className="w-32 mb-4" />
+            <div className="flex flex-col items-center">
+              <img src="/images/logo.png" className="w-32 mb-4" />
+            </div>
 
-            <h3 className="text-xl font-display font-bold text-primary mb-2">
+            <h3 className="text-xl text-center font-display font-bold text-primary mb-2">
               CSK Textiles Hyderabad
             </h3>
 
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground text-center">
               Premium men's fabrics and tailoring since 1998. Trusted by
               executives and grooms across Hyderabad for quality suiting,
               shirting, and wedding attire.
@@ -23,8 +25,10 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
+          <div className="flex flex-col items-center">
+            <h4 className="font-semibold text-foreground text-3xl mb-4">
+              Quick Links
+            </h4>
 
             <ul className="space-y-2 text-sm">
               <li>
@@ -75,8 +79,10 @@ const Footer = () => {
           </div>
 
           {/* Store Info */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Visit Us</h4>
+          <div className="flex flex-col items-center">
+            <h4 className="font-semibold text-foreground md:text-3xl text-xl mb-4">
+              Visit Us
+            </h4>
 
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">

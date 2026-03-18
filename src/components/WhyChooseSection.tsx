@@ -55,13 +55,21 @@ const WhyChooseSection = ({ scrollYProgress }) => {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20 h-screen sticky top-0 z-5"
+      className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20 h-screen sticky top-0 z-10"
     >
-      <div className="container mx-auto px-4">
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url("/images/choose.jpeg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      {/* <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
-            className="text-3xl md:text-5xl font-display text-foreground mb-4"
+            className="text-3xl md:text-5xl font-display text-yellow-400 text-foreground mb-4"
           >
             Why Choose CSK Textiles
           </h2>
@@ -70,7 +78,7 @@ const WhyChooseSection = ({ scrollYProgress }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-30">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -93,7 +101,7 @@ const WhyChooseSection = ({ scrollYProgress }) => {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

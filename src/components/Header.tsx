@@ -48,9 +48,7 @@ const Header = () => {
           >
             <img
               src="/images/logo.png"
-              className={`object-contain transition-all duration-300 ${
-                isScrolled ? "h-28" : "h-36"
-              }`}
+              className={`object-contain transition-all duration-300 h-14`}
             />
           </Link>
 

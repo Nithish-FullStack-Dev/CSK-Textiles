@@ -12,50 +12,42 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
   const bgRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const pRef = useRef<HTMLParagraphElement>(null);
   const btnRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (
-      !sectionRef.current ||
-      !bgRef.current ||
-      !line1Ref.current ||
-      !line2Ref.current ||
-      !pRef.current ||
-      !btnRef.current
-    )
-      return;
-
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: sectionRef.current,
+        trigger: bgRef.current,
         start: "top top",
-        end: "+=100%", // important
+        end: "bottom top",
         scrub: 1,
-        pin: true,
-        anticipatePin: 1,
       },
     });
 
-    tl.to(bgRef.current, { y: -250, scale: 1.4, ease: "none" }, 0);
+    // Background parallax
+    tl.to(
+      bgRef.current,
+      {
+        y: -200,
+        scale: 1.3,
+        ease: "none",
+      },
+      0,
+    );
 
-    tl.to(line1Ref.current, { y: 200, ease: "none" }, 0);
+    // Text animations
+    tl.to(line1Ref.current, { y: 150 }, 0);
+    tl.to(line2Ref.current, { y: 200 }, 0);
 
-    tl.to(line2Ref.current, { y: 280, ease: "none" }, 0);
-
-    tl.to(pRef.current, { y: 150, opacity: 0, ease: "none" }, 0);
-
-    tl.to(btnRef.current, { y: 180, opacity: 0, ease: "none" }, 0);
+    tl.to(pRef.current, { y: 120, opacity: 0 }, 0);
+    tl.to(btnRef.current, { y: 140, opacity: 0 }, 0);
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden"
-    >
+    <section className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div
         ref={bgRef}

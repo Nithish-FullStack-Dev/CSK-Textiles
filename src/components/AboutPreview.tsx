@@ -1,75 +1,82 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Card, CardContent } from "./ui/card";
+import { Award, Users, Scissors, Briefcase } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
+const features = [
+  {
+    icon: Award,
+    title: "Since 1998",
+    description:
+      "25+ years of textile expertise in Hyderabad's premium fabric market",
+  },
+  {
+    icon: Users,
+    title: "Groomwear Experts",
+    description: "Specialized in wedding sherwani and formal occasion fabrics",
+  },
+  {
+    icon: Scissors,
+    title: "Custom Tailoring",
+    description: "Expert guidance for bespoke suits and traditional groomwear",
+  },
+  {
+    icon: Briefcase,
+    title: "Executive Fabrics",
+    description: "Premium suiting for professionals who value quality",
+  },
+];
 
-const AboutPreview = ({ scrollYProgress }) => {
-  const sectionRef = useRef(null);
-  const headingRef = useRef(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(headingRef.current, {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
+const AboutPreview = () => {
   return (
-    <section
-      ref={sectionRef}
-      className="py-16 md:py-20 overflow-hidden h-screen bg-[#fff] relative z-10"
-    >
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <div className="aspect-[4/3] bg-muted rounded-lg overflow-hidden shadow-xl">
+    <section className="py-16 md:py-20 h-screen bg-white relative z-10">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col justify-center h-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center justify-center h-full">
+          <div className="w-full">
+            <div className="aspect-[5/4] rounded-xl overflow-hidden shadow-xl">
               <img
-                src="/placeholder.svg"
+                src="/images/aboutPreview.jpg"
                 alt="CSK Textiles Store"
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
 
-          <div className="order-1 md:order-2">
-            <h2
-              ref={headingRef}
-              className="text-4xl md:text-5xl font-display text-foreground mb-6 flex flex-wrap gap-x-[0.3em]"
-            >
-              Heritage of Excellence in Rikabgunj
-            </h2>
-            <p className="text-muted-foreground text-lg mb-4">
-              Since 1998, CSK Textiles has been synonymous with premium men's
-              fabrics in Hyderabad's historic Rikabgunj market. What started as
-              a vision by Chimanlal Suresh Kumar has grown into a trusted
-              destination for executives and grooms seeking exceptional quality.
-            </p>
-            <p className="text-muted-foreground text-lg mb-8">
-              Our expertise spans premium suiting for corporate professionals,
-              fine shirting for daily elegance, and luxurious wedding fabrics
-              for the most important day of your life.
-            </p>
-            <Link to="/about">
-              <Button variant="outline" size="lg" className="group px-8">
-                Our Complete Story
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+          <div className="w-full">
+            <div className="mb-4 text-left">
+              <h2 className="text-2xl md:text-4xl font-display text-primary mb-4">
+                Why Choose CSK Textiles
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg max-w-lg">
+                Trusted by Hyderabad's discerning men for over two decades
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <Card
+                    key={index}
+                    className="border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 shrink-0">
+                          <Icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-lg text-foreground mb-1">
+                            {feature.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

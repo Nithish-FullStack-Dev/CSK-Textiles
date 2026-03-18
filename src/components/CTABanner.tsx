@@ -21,7 +21,7 @@ const CTABanner = () => {
   return (
     <section
       ref={targetRef}
-      className="py-16 md:py-24 overflow-hidden absolute inset-0 z-20 bg-white h-[90vh]"
+      className="py-16 md:py-24 overflow-hidden absolute inset-0 z-20 bg-white h-[100vh]"
     >
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 items-center gap-8 h-full">
         {/* Left Floating Card - Slides from Left */}
@@ -33,7 +33,7 @@ const CTABanner = () => {
           style={{ y: yLeft }}
           className="hidden md:flex justify-start"
         >
-          <div className="w-72 h-[400px] rounded-xl overflow-hidden shadow-xl rotate-[-4deg] border border-black/5 bg-gray-100">
+          <div className="w-80 h-[500px] rounded-xl overflow-hidden shadow-xl rotate-[-25deg] border border-black/5 bg-gray-100">
             <img
               src={weddingHero}
               alt="Groom Style Left"
@@ -80,7 +80,7 @@ const CTABanner = () => {
           style={{ y: yRight }}
           className="hidden md:flex justify-end"
         >
-          <div className="w-72 h-[400px] rounded-xl overflow-hidden shadow-xl rotate-[4deg] border border-black/5 bg-gray-100">
+          <div className="w-80 h-[500px] rounded-xl overflow-hidden shadow-xl rotate-[25deg] border border-black/5 bg-gray-100">
             <img
               src={categoryWedding}
               alt="Groom Style Right"
