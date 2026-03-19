@@ -34,7 +34,7 @@ const Index = () => {
       {/* <AnnouncementBar /> */}
       <Header />
       <main>
-        <div className="relative h-[200vh] z-30">
+        <div className="relative md:h-[200dvh] z-30">
           <HeroSection />
           <EthosSection />
         </div>
@@ -42,13 +42,13 @@ const Index = () => {
         {/* <ProductCarousel products={newArrivals} /> */}
         <ServicesGrid />
         <TestimonialsSection testimonials={testimonials} />
-        <div ref={chooseRef} className="h-[200vh]">
-          <WhyChooseSection scrollYProgress={scrollYProgress} />
+        <div ref={chooseRef} className="md:h-[200vh]">
+          <WhyChooseSection />
           <AboutPreview />
         </div>
         {/* <InstagramReels /> */}
         <VisitUs />
-        <div className="h-[160vh] relative z-30">
+        <div className="md:h-[160vh] relative z-30">
           <CTABanner />
           <Footer />
         </div>

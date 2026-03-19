@@ -47,7 +47,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+    <section className="sticky top-0 md:h-screen h-[80dvh] flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div
         ref={bgRef}
@@ -61,7 +61,7 @@ const HeroSection = () => {
 
       {/* CENTER TEXT */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
-        <div className="w-[60%] text-center leading-[0.9]">
+        <div className="md:w-[60%] w-full text-center md:leading-[0.9] leading-[1.1]">
           <div className="overflow-hidden">
             <span
               ref={line1Ref}

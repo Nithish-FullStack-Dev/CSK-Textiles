@@ -1,107 +1,60 @@
-import { Award, Users, Scissors, Briefcase } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const features = [
-  {
-    icon: Award,
-    title: "Since 1998",
-    description:
-      "25+ years of textile expertise in Hyderabad's premium fabric market",
-  },
-  {
-    icon: Users,
-    title: "Groomwear Experts",
-    description: "Specialized in wedding sherwani and formal occasion fabrics",
-  },
-  {
-    icon: Scissors,
-    title: "Custom Tailoring",
-    description: "Expert guidance for bespoke suits and traditional groomwear",
-  },
-  {
-    icon: Briefcase,
-    title: "Executive Fabrics",
-    description: "Premium suiting for professionals who value quality",
-  },
-];
-
-const WhyChooseSection = ({ scrollYProgress }) => {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(titleRef.current, {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 90%",
-          toggleActions: "play none none play",
-        },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
+const WhyChooseSection = () => {
+  useEffect(() => {
+    AOS.refresh();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20 h-screen sticky top-0 z-10"
-    >
+    <section className="h-screen sticky top-0 z-10 overflow-hidden">
+      {/* Background */}
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url("/images/choose.jpeg")`,
+          backgroundImage: `
+            linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+            url("/images/choose.jpeg")
+          `,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       />
-      {/* <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+
+      <div className="relative z-10 h-full flex items-center">
+        {/* LEFT */}
+        <div className="flex flex-col gap-4 absolute left-20">
           <h2
-            ref={titleRef}
-            className="text-3xl md:text-5xl font-display text-yellow-400 text-foreground mb-4"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            className="lg:text-[130px] md:text-7xl text-5xl font-display text-white"
           >
-            Why Choose CSK Textiles
+            Textiles
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Trusted by Hyderabad's discerning men for over two decades
+
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="text-xs tracking-[3px] text-neutral-300 ml-5"
+          >
+            PREMIUM TEXTILES
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-30">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <Card
-                key={index}
-                className="border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-card"
-              >
-                <CardContent className="p-8 text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
-                    <Icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="font-display font-semibold text-xl text-foreground mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+        {/* RIGHT */}
+        <div
+          data-aos="fade-up"
+          data-aos-delay="400"
+          className="absolute right-6 bottom-28 max-w-md text-neutral-200"
+        >
+          At CSK Textiles, fabric is not just material — it is identity. Our
+          premium suiting, sherwani, and traditional fabrics are crafted for
+          elegance, comfort, and lasting impression. From wedding collections to
+          executive wear, every textile reflects quality, heritage, and fine
+          craftsmanship trusted for generations.
         </div>
-      </div> */}
+      </div>
     </section>
   );
 };

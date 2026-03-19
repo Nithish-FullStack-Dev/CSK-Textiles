@@ -1,3 +1,4 @@
+import { motion, Variants } from "framer-motion";
 import { Award, Users, Scissors, Briefcase } from "lucide-react";
 
 const featuresLeft = [
@@ -27,38 +28,81 @@ const featuresRight = [
   },
 ];
 
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  show: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.2,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const AboutPreview = () => {
   return (
-    <section className="py-16 md:py-20 h-screen bg-white relative z-10">
+    <section className="py-16 md:py-20 bg-white relative z-10">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground leading-tight">
+        {/* TITLE */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <motion.h2
+            variants={fadeUp}
+            custom={0}
+            className="text-3xl md:text-5xl font-display font-semibold"
+          >
             Why Choose CSK Textiles
-          </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUp}
+            custom={1}
+            className="text-muted-foreground mt-4 max-w-xl mx-auto"
+          >
             Trusted by Hyderabad's discerning men for over two decades
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-12 items-center">
+          {/* LEFT */}
           <div className="space-y-12">
-            {featuresLeft.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div key={index}>
-                  <h3 className="text-3xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-xl text-muted-foreground leading-relaxed mb-4">
-                    {item.description}
-                  </p>
-                  {index !== featuresLeft.length - 1 && (
-                    <div className="border-b border-border/40" />
-                  )}
-                </div>
-              );
-            })}
+            {featuresLeft.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                custom={index}
+              >
+                <h3 className="text-3xl font-semibold mb-2">{item.title}</h3>
+
+                <p className="text-xl text-muted-foreground mb-4">
+                  {item.description}
+                </p>
+
+                {index !== featuresLeft.length - 1 && (
+                  <div className="border-b border-border/40" />
+                )}
+              </motion.div>
+            ))}
           </div>
 
-          <div className="flex justify-center">
+          {/* IMAGE */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            custom={1}
+            className="flex justify-center"
+          >
             <div className="w-full max-w-md aspect-[4/4.5] overflow-hidden shadow-xl">
               <img
                 src="/images/aboutPreview.jpg"
@@ -66,23 +110,30 @@ const AboutPreview = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </motion.div>
 
+          {/* RIGHT */}
           <div className="space-y-12">
-            {featuresRight.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div key={index}>
-                  <h3 className="text-3xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-xl text-muted-foreground leading-relaxed mb-4">
-                    {item.description}
-                  </p>
-                  {index !== featuresRight.length - 1 && (
-                    <div className="border-b border-border/40" />
-                  )}
-                </div>
-              );
-            })}
+            {featuresRight.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                custom={index}
+              >
+                <h3 className="text-3xl font-semibold mb-2">{item.title}</h3>
+
+                <p className="text-xl text-muted-foreground mb-4">
+                  {item.description}
+                </p>
+
+                {index !== featuresRight.length - 1 && (
+                  <div className="border-b border-border/40" />
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

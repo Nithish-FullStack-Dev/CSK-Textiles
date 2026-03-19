@@ -33,9 +33,9 @@ const EthosSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-20 px-6 md:px-10 absolute h-screen bg-[#fbf9f6]"
+      className="w-full py-20 px-6 md:px-10 absolute min-h-screen md:h-[100dvh] bg-[#fbf9f6]"
     >
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* LEFT CONTENT */}
         <div>
           {/* Top label */}
@@ -48,7 +48,7 @@ const EthosSection: React.FC = () => {
           </div>
 
           {/* Heading */}
-          <h2 className="text-5xl md:text-6xl font-display leading-tight text-gray-900 mb-6 overflow-hidden">
+          <h2 className="text-3xl md:text-6xl font-display leading-tight text-gray-900 mb-6 overflow-hidden">
             <span ref={line1Ref} className="block">
               WHERE DESIGN
             </span>
@@ -59,7 +59,7 @@ const EthosSection: React.FC = () => {
           </h2>
 
           {/* Paragraph */}
-          <p className="text-gray-700 leading-7 max-w-xl mb-10">
+          <p className="text-gray-700 leading-7 md:text-xl text-[16px] max-w-xl mb-10">
             CSK Textiles, based in Hyderabad, is built on a strong foundation of
             quality, craftsmanship, and innovation in the textile industry. With
             years of experience in fabric production and modern printing
@@ -78,11 +78,11 @@ const EthosSection: React.FC = () => {
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-10 md:mt-0">
           <img
             src="/images/ethos.jpg"
             alt="Textile Machine"
-            className="w-[380px] object-cover"
+            className="w-full max-w-[380px] object-cover"
           />
         </div>
       </div>
