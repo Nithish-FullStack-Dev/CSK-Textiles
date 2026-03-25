@@ -35,10 +35,10 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter 
-          future={{ 
+        <BrowserRouter
+          future={{
             v7_startTransition: true,
-            v7_relativeSplatPath: true 
+            v7_relativeSplatPath: true,
           }}
         >
           <ScrollToTop />
@@ -55,7 +55,7 @@ const App = () => {
               element={<CollectionShirting />}
             />
             <Route
-              path="/collections/wedding-sherwani"
+              path="/collections/wedding"
               element={<CollectionWedding />}
             />
             <Route path="/product/:id" element={<ProductDetails />} />

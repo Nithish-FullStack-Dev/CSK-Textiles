@@ -20,7 +20,7 @@ const HeroSection = () => {
   useLayoutEffect(() => {
     // Skip scroll-linked animations on mobile for better UX
     const isMobile = window.innerWidth < 768;
-    
+
     if (isMobile) {
       // Basic entry animation for mobile instead of scroll-linked
       gsap.from(line1Ref.current, { y: 30, opacity: 0, delay: 0.2 });
@@ -100,10 +100,14 @@ const HeroSection = () => {
         </div>
         <div className="overflow-hidden">
           <div ref={btnRef} className="flex gap-4 mt-6">
-            <Button className="bg-yellow-400 text-black hover:bg-yellow-300">
-              Explore Suiting
-            </Button>
-            <Button variant="outline">Wedding Collection</Button>
+            <Link to="/collections/suiting">
+              <Button className="bg-yellow-400 text-black hover:bg-yellow-300">
+                Explore Suiting
+              </Button>
+            </Link>
+            <Link to="/collections/wedding">
+              <Button variant="outline">Wedding Collection</Button>
+            </Link>
           </div>
         </div>
       </div>

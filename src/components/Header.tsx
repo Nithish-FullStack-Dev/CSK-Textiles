@@ -12,7 +12,7 @@ const Header = () => {
     { name: "Home", path: "/" },
     { name: "Suiting", path: "/collections/suiting" },
     { name: "Shirting", path: "/collections/shirting" },
-    { name: "Wedding", path: "/collections/wedding-sherwani" },
+    { name: "Wedding", path: "/collections/wedding" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];

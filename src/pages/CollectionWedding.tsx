@@ -49,7 +49,7 @@ const CollectionWedding = () => {
       <Header />
 
       <main className="flex-grow">
-        <section className="relative h-[65vh] overflow-hidden">
+        <section className="relative h-[80vh] overflow-hidden">
           <motion.div
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}

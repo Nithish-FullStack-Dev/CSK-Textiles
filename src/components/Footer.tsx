@@ -61,7 +61,7 @@ const Footer = ({ variant = "static" }: FooterProps) => {
 
               <li>
                 <Link
-                  to="/collections/wedding-sherwani"
+                  to="/collections/wedding"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Wedding & Sherwani

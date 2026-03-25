@@ -49,7 +49,7 @@ const CollectionShirting = () => {
       <Header />
 
       <main className="flex-grow">
-        <section className="relative h-[65vh] overflow-hidden">
+        <section className="relative h-[80vh] overflow-hidden">
           <motion.div
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
@@ -96,13 +96,19 @@ const CollectionShirting = () => {
                 </p>
               </div>
               <div className="flex w-full lg:w-auto flex-row items-center gap-3 lg:gap-4 justify-center mt-6 lg:mt-0">
-                <Link to="/customize" className="flex-1 border-none focus:outline-none">
+                <Link
+                  to="/customize"
+                  className="flex-1 border-none focus:outline-none"
+                >
                   <Button className="w-full rounded-full px-2 lg:px-10 h-12 lg:h-14 bg-white text-black hover:bg-white/90 transition-all shadow-2xl group text-[11px] sm:text-xs lg:text-sm font-bold">
                     Customize{" "}
                     <ChevronRight className="ml-1 lg:ml-2 w-3 sm:w-4 h-3 sm:h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <Link to="/gallery" className="flex-1 border-none focus:outline-none">
+                <Link
+                  to="/gallery"
+                  className="flex-1 border-none focus:outline-none"
+                >
                   <Button className="w-full rounded-full px-2 lg:px-10 h-12 lg:h-14 bg-white text-black hover:bg-white/90 transition-all shadow-2xl group text-[11px] sm:text-xs lg:text-sm font-bold">
                     View Gallery{" "}
                     <ChevronRight className="ml-1 lg:ml-2 w-3 sm:w-4 h-3 sm:h-4 group-hover:translate-x-1 transition-transform" />

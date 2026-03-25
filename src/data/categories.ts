@@ -27,7 +27,7 @@ export const categories = [
     name: "Wedding & Sherwani",
     description: "Brocade, silk, and embroidered groomwear",
     image: categoryWedding,
-    link: "/collections/wedding-sherwani",
+    link: "/collections/wedding",
     featured: true,
   },
   {
@@ -70,7 +70,7 @@ export const categories = [
     name: "Velvet",
     description: "Luxury velvet fabrics for occasions",
     image: categoryWedding,
-    link: "/collections/wedding-sherwani",
+    link: "/collections/wedding",
     featured: true,
   },
   {
@@ -78,7 +78,7 @@ export const categories = [
     name: "Bandhgala",
     description: "Classic royal Indian formal wear",
     image: categoryIndoWestern,
-    link: "/collections/wedding-sherwani",
+    link: "/collections/wedding",
     featured: true,
   },
   {
@@ -86,7 +86,7 @@ export const categories = [
     name: "Kurta Sets",
     description: "Traditional and festive kurta materials",
     image: categoryWedding,
-    link: "/collections/wedding-sherwani",
+    link: "/collections/wedding",
     featured: true,
   },
   {
@@ -94,7 +94,7 @@ export const categories = [
     name: "Jodhpuri",
     description: "Elegant prince coat styles",
     image: categoryIndoWestern,
-    link: "/collections/wedding-sherwani",
+    link: "/collections/wedding",
     featured: true,
   },
   {
@@ -118,7 +118,7 @@ export const categories = [
     name: "Ethnic Fabrics",
     description: "Rich Indian traditional materials",
     image: categoryWedding,
-    link: "/collections/wedding-sherwani",
+    link: "/collections/wedding",
     featured: true,
   },
   {

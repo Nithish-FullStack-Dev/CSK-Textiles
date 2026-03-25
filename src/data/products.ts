@@ -9,10 +9,14 @@ import productMenSuit8 from '@/assets/suities/Men/21981.jpg';
 import productMenSuit9 from '@/assets/suities/Men/63367.jpg'
 import productMenSuit10 from '@/assets/suities/Men/311562.jpg'
 
-import productShirt1 from '@/assets/product-shirt-1.jpg';
-import productShirt2 from '@/assets/product-shirt-2.jpg';
-import productWedding1 from '@/assets/product-wedding-1.jpg';
-import productWedding2 from '@/assets/product-wedding-2.jpg';
+import productShirt1 from '/images/shirt1.jpg';
+import productShirt2 from '/images/shirt2.jpg';
+import productShirt3 from '/images/shirt3.jpg';
+import productShirt4 from '/images/shirt4.jpg';
+import productWedding1 from '/images/wedding-dress.png';
+import productWedding2 from '/images/wedding-dress2.jpg';
+import productWedding3 from '/images/wedding-dress3.jpg';
+import productWedding4 from '/images/wedding-dress4.jpg';
 
 import productWomenSuit1 from '@/assets/suities/women/2010.jpg';
 import productWomenSuit2 from '@/assets/suities/women/2016.jpg';
@@ -219,7 +223,7 @@ export const products: Product[] = [
     name: 'Egyptian Cotton White',
     category: 'shirting',
     price: 2200,
-    image: [productWomenSuit2, productWomenSuit4, productWomenSuit5, productWomenSuit7],
+    image: [productShirt1, productShirt2, productShirt3, productShirt4],
     isNew: true,
     description: 'Pure Egyptian cotton for crisp formal shirts',
     fabric: '100% Egyptian Cotton',
@@ -232,7 +236,7 @@ export const products: Product[] = [
     name: 'Oxford Blue',
     category: 'shirting',
     price: 1800,
-    image: [productShirt2, productShirt1],
+    image: [productShirt2, productShirt1, productShirt3, productShirt4],
     isNew: true,
     description: 'Classic oxford weave in sky blue',
     fabric: '100% Cotton Oxford',
@@ -245,7 +249,7 @@ export const products: Product[] = [
     name: 'Pinpoint Dress Shirt',
     category: 'shirting',
     price: 2500,
-    image: ['/placeholder.svg'],
+    image: [productShirt3, productShirt1, productShirt2, productShirt4],
     description: 'Fine pinpoint cotton for formal occasions',
     fabric: '100% Cotton',
     colors: ['White', 'Light Blue', 'Pink'],
@@ -257,7 +261,7 @@ export const products: Product[] = [
     name: 'Linen Summer Blend',
     category: 'shirting',
     price: 1900,
-    image: ['/placeholder.svg'],
+    image: [productShirt4, productShirt1, productShirt2, productShirt3],
     description: 'Cool linen-cotton for casual elegance',
     fabric: '60% Linen 40% Cotton',
     colors: ['White', 'Beige'],
@@ -284,7 +288,7 @@ export const products: Product[] = [
     name: 'Ivory Silk Sherwani',
     category: 'wedding-sherwani',
     price: 12500,
-    image: [productWedding1, productMenSuit1],
+    image: [productWedding2, productMenSuit3],
     isNew: true,
     description: 'Pure silk fabric with subtle embroidery',
     fabric: '100% Silk',
@@ -297,7 +301,7 @@ export const products: Product[] = [
     name: 'Maroon Velvet Groomwear',
     category: 'wedding-sherwani',
     price: 18000,
-    image: [productWedding2, productWedding1],
+    image: [productWedding3, productWedding4],
     description: 'Rich velvet fabric for royal look',
     fabric: 'Silk Velvet',
     colors: ['Maroon', 'Wine'],
@@ -309,7 +313,7 @@ export const products: Product[] = [
     name: 'Champagne Embroidered',
     category: 'wedding-sherwani',
     price: 16500,
-    image: [productWedding1, productMenSuit3],
+    image: [productWedding4, productMenSuit1],
     description: 'Elegant champagne with gold thread work',
     fabric: 'Silk Blend',
     colors: ['Champagne', 'Gold'],
