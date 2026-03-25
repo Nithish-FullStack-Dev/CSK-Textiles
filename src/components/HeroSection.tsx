@@ -95,7 +95,7 @@ const HeroSection = () => {
         <div className="overflow-hidden">
           <p ref={pRef} className="text-white/90 text-center mt-6 max-w-xl">
             Premium suiting, shirting, and groomwear fabrics curated in
-            Hyderabad since 1998.
+            Hyderabad since 1991.
           </p>
         </div>
         <div className="overflow-hidden">

@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -13,9 +13,10 @@ import AnnouncementBar from "@/components/AnnouncementBar";
 
 const CollectionShirting = () => {
   const allProducts = getProductsByCategory("shirting");
-  const activeGender = "men";
   const [activeFilter, setActiveFilter] = useState("All");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const filters = [
     "All",
     "Cotton",
@@ -29,12 +30,11 @@ const CollectionShirting = () => {
 
   const filteredProducts = useMemo(() => {
     return allProducts.filter((p) => {
-      const genderMatch = p.gender === activeGender;
       const filterMatch =
         activeFilter === "All" ||
         p.fabric?.includes(activeFilter) ||
         p.tags?.includes(activeFilter);
-      return genderMatch && filterMatch;
+      return filterMatch;
     });
   }, [activeFilter, allProducts]);
 

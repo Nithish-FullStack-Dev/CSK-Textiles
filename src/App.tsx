@@ -17,6 +17,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ScrollToTop from "./components/ScrollToTop";
+import WhatsAppIcon from "./components/WhatsAppIcon";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => {
           }}
         >
           <ScrollToTop />
+          <WhatsAppIcon />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />

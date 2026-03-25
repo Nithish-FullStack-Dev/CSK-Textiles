@@ -430,11 +430,6 @@ const Customize = () => {
                     className="h-12 w-full rounded-xl border border-[#D1D5DB] bg-white pl-11 pr-4 text-sm outline-none transition focus:border-[#111827]"
                   />
                 </div>
-
-                <button className="flex h-12 items-center justify-center gap-2 rounded-xl border border-[#D1D5DB] bg-white px-4 text-sm font-medium hover:bg-[#F9FAFB]">
-                  <Filter className="h-4 w-4" />
-                  Filter
-                </button>
               </div>
 
               <div className="mb-5 flex flex-wrap gap-2">

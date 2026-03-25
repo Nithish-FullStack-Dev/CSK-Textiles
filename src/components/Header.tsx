@@ -55,7 +55,7 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-xl font-medium transition-colors hover:text-primary ${
                   isActive(link.path)
                     ? isScrolled
                       ? "text-primary"

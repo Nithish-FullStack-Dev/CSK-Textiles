@@ -1,73 +1,39 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnnouncementBar from "@/components/AnnouncementBar";
-
-// Import images from assets/gallery
-import img1 from "@/assets/gallery/L7P00207.jpg";
-import img2 from "@/assets/gallery/L7P00208.jpg";
-import img3 from "@/assets/gallery/L7P00209.jpg";
-import img4 from "@/assets/gallery/L7P00210.jpg";
-import img5 from "@/assets/gallery/L7P00211.jpg";
-import img6 from "@/assets/gallery/L7P00212.jpg";
-import img7 from "@/assets/gallery/L7P00213.jpg";
-import img8 from "@/assets/gallery/L7P00214.jpg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const galleryImages = [
-  {
-    id: 1,
-    src: img1,
-    title: "Bespoke Tailoring",
-    className: "md:col-span-2 md:row-span-2",
-  },
-  {
-    id: 2,
-    src: img2,
-    title: "Luxury Silk",
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    id: 3,
-    src: img3,
-    title: "Royal Heritage",
-    className: "md:col-span-1 md:row-span-2",
-  },
-  {
-    id: 4,
-    src: img4,
-    title: "Artisan Finish",
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    id: 5,
-    src: img5,
-    title: "Premium Wool",
-    className: "md:col-span-2 md:row-span-1",
-  },
-  {
-    id: 6,
-    src: img6,
-    title: "Elegant Cuffs",
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    id: 7,
-    src: img7,
-    title: "Master Craft",
-    className: "md:col-span-1 md:row-span-2",
-  },
-  {
-    id: 8,
-    src: img8,
-    title: "Groom Selection",
-    className: "md:col-span-2 md:row-span-1",
-  },
-];
+// Automatically import all images from the gallery directory
+// Adjusted pattern to accurately match Vite's require patterns if needed, but import.meta.glob is standard
+const images = import.meta.glob('@/assets/gallery/*.{jpg,JPG,png,PNG,jpeg,JPEG,webp}', { eager: true, import: 'default' });
+const allImageUrls = Object.values(images) as string[];
 
 const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Prevent background scrolling when lightbox is open
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedImage]);
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-accent selection:text-white">
       <AnnouncementBar />
@@ -99,37 +65,86 @@ const Gallery = () => {
             className="text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed"
           >
             A visual journey through our finest fabric creations and bespoke
-            masterpieces. Each piece tells a story of tradition, luxury, and
-            unparalleled skill.
+            masterpieces. Explore our complete collection of {allImageUrls.length} meticulously crafted designs.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[350px]">
-          {galleryImages.map((image, index) => (
+        {/* CSS Masonry Layout */}
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          {allImageUrls.map((src, index) => (
             <motion.div
-              key={image.id}
+              key={index}
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05, duration: 0.8 }}
-              className={`relative overflow-hidden group rounded-[2.5rem] bg-[#111] border border-white/5 ${image.className}`}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: (index % 10) * 0.05, duration: 0.6 }}
+              className="relative overflow-hidden group rounded-xl bg-[#111] border border-white/5 cursor-zoom-in break-inside-avoid"
+              onClick={() => setSelectedImage(src)}
             >
               <img
-                src={image.src}
-                alt={image.title}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                src={src}
+                alt={`Gallery detail ${index + 1}`}
+                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10 translate-y-4 group-hover:translate-y-0">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-white/40 mb-2">
-                  Exquisite Detail
-                </p>
-                <h3 className="text-3xl font-display font-medium tracking-tight">
-                  {image.title}
-                </h3>
-                <div className="w-10 h-0.5 bg-accent mt-4 group-hover:w-full transition-all duration-700 delay-100" />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span className="text-white backdrop-blur-md bg-black/40 px-4 py-2 rounded-full text-sm tracking-widest uppercase font-medium">
+                  View Full Size
+                </span>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Lightbox Modal */}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-10 cursor-zoom-out"
+            >
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="absolute top-6 right-6 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors z-[110]"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage(null);
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </motion.button>
+
+              <motion.img
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                src={selectedImage}
+                alt="Enlarged gallery view"
+                className="relative z-[105] max-w-full max-h-full object-contain shadow-2xl rounded-sm"
+                onClick={(e) => e.stopPropagation()} // Prevent clicking image from closing
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Floating Action Button for Contact */}
         <div className="mt-20 text-center">

@@ -4,7 +4,7 @@ import { Award, Users, Scissors, Briefcase } from "lucide-react";
 const featuresLeft = [
   {
     icon: Award,
-    title: "Since 1998",
+    title: "Since 1991",
     description:
       "25+ years of textile expertise in Hyderabad's premium fabric market",
   },
@@ -82,10 +82,12 @@ const AboutPreview = () => {
                 custom={index}
               >
                 <div className="flex items-center gap-4 mb-2">
-                   <div className="p-2 bg-yellow-400/10 rounded-lg">
-                      <item.icon className="w-5 h-5 text-yellow-600" />
-                   </div>
-                   <h3 className="text-2xl md:text-3xl font-semibold">{item.title}</h3>
+                  <div className="p-2 bg-yellow-400/10 rounded-lg">
+                    <item.icon className="w-5 h-5 text-yellow-600" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-semibold">
+                    {item.title}
+                  </h3>
                 </div>
 
                 <p className="text-base md:text-xl text-muted-foreground mb-4">
@@ -129,10 +131,12 @@ const AboutPreview = () => {
                 custom={index}
               >
                 <div className="flex items-center gap-4 mb-2">
-                   <div className="p-2 bg-yellow-400/10 rounded-lg">
-                      <item.icon className="w-5 h-5 text-yellow-600" />
-                   </div>
-                   <h3 className="text-2xl md:text-3xl font-semibold">{item.title}</h3>
+                  <div className="p-2 bg-yellow-400/10 rounded-lg">
+                    <item.icon className="w-5 h-5 text-yellow-600" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-semibold">
+                    {item.title}
+                  </h3>
                 </div>
 
                 <p className="text-base md:text-xl text-muted-foreground mb-4">

@@ -14,12 +14,12 @@ const Footer = ({ variant = "static" }: FooterProps) => {
         isSticky ? "md:sticky md:top-[40vh] md:inset-0 md:h-[60vh]" : ""
       }`}
     >
-      <div className="container mx-auto px-6 py-10">
+      <div className="container mx-auto px-6 pt-10 pb-4">
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8 items-start justify-center w-full md:w-[90%] lg:w-[80%] mx-auto">
           {/* Logo + Brand */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <div className="mb-6">
+            <div className="mb-6 mx-auto">
               <img src="/images/logo.png" className="w-32 md:w-40" />
             </div>
 
@@ -28,7 +28,7 @@ const Footer = ({ variant = "static" }: FooterProps) => {
             </h3>
 
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Premium men's fabrics and tailoring since 1998. Trusted by
+              Premium men's fabrics and tailoring since 1991. Trusted by
               executives and grooms across Hyderabad for quality suiting,
               shirting, and wedding attire.
             </p>
@@ -106,7 +106,7 @@ const Footer = ({ variant = "static" }: FooterProps) => {
 
               <li className="flex items-center gap-3 justify-center md:justify-start">
                 <Phone className="h-5 w-5 text-primary shrink-0" />
-                <span> +91 40 2456 7139 | +91 90306 09700</span>
+                <span> +91 4024567139 | +91 9030609700</span>
               </li>
 
               <li className="flex items-start gap-3 justify-center md:justify-start">
@@ -125,7 +125,7 @@ const Footer = ({ variant = "static" }: FooterProps) => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-border mt-4 pt-4 text-center text-sm text-muted-foreground">
+        <div className="border-t border-border  pt-4 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} Chimanlal Suresh Kumar Textiles Pvt Ltd.
           All rights reserved.
           <br className="md:hidden" />

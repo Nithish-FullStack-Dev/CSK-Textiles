@@ -242,9 +242,8 @@ export default function Contact() {
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full h-14 bg-[#25D366] hover:bg-[#1da851] rounded-xl text-base font-semibold"
+                    className="w-full h-14 bg-[#ffd500] hover:bg-[#ffe97c] rounded-xl text-base font-semibold text-gray-900"
                   >
-                    <MessageCircle className="mr-2 w-5 h-5" />
                     {loading ? "Submitting..." : "Submit"}
                   </Button>
                 </form>

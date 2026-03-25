@@ -40,7 +40,7 @@ const About = () => {
 
   const editorialJourney = [
     {
-      year: "1998",
+      year: "1991",
       title: "The Vision Begins",
       description:
         "Chimanlal Suresh Kumar establishes CSK Textiles in the historic Rikabgunj market, bringing a new standard of luxury to Hyderabad.",
@@ -106,7 +106,7 @@ const About = () => {
                 className="mb-4 md:mb-8"
               >
                 <span className="editorial-caps text-white/80">
-                  Established 1998
+                  Established 1991
                 </span>
               </motion.div>
 
