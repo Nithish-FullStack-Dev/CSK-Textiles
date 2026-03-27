@@ -24,7 +24,7 @@ import productWedding3_5 from '/textures/wedding/wedding-03-5.jpg';
 import productWedding3_6 from '/textures/wedding/wedding-03-6.jpg';
 import productWedding3_7 from '/textures/wedding/wedding-03-7.jpg';
 
-import productWedding4 from '/images/wedding-dress4.jpg';
+// import productWedding4 from '/images/wedding-dress4.jpg';
 
 export const weddingProducts: Product[] = [
   {
@@ -62,15 +62,15 @@ export const weddingProducts: Product[] = [
     colors: ['Ivory', 'Off White'],
     tags: ['Wedding', 'Premium']
   },
-  {
-    id: 'wedding-04',
-    name: 'Blush Pink Designer',
-    category: 'wedding-sherwani',
-    price: 16500,
-    image: [productWedding4],
-    description: 'Soft blush pink sherwani with modern royal finish',
-    fabric: 'Silk Blend',
-    colors: ['Blush Pink'],
-    tags: ['Wedding', 'Trending']
-  }
+  // {
+  //   id: 'wedding-04',
+  //   name: 'Blush Pink Designer',
+  //   category: 'wedding-sherwani',
+  //   price: 16500,
+  //   image: [productWedding4],
+  //   description: 'Soft blush pink sherwani with modern royal finish',
+  //   fabric: 'Silk Blend',
+  //   colors: ['Blush Pink'],
+  //   tags: ['Wedding', 'Trending']
+  // }
 ];
