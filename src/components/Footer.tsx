@@ -119,7 +119,14 @@ const Footer = ({ variant = "static" }: FooterProps) => {
               </li>
             </ul>
           </div>
-
+          <div className="flex gap-4 text-sm text-gray-500">
+            <Link to="/terms" className="hover:text-black transition">
+              Terms & Conditions
+            </Link>
+            <Link to="/privacy" className="hover:text-black transition">
+              Privacy Policy
+            </Link>
+          </div>
           {/* Empty / extra column for spacing (optional like awwwards style) */}
           <div className="hidden lg:block" />
         </div>

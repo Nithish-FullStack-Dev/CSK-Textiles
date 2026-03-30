@@ -18,6 +18,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppIcon from "./components/WhatsAppIcon";
+import TermsPage from "./pages/Terms";
+import PrivacyPage from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +66,8 @@ const App = () => {
             <Route path="/customize" element={<Customize />} />
             <Route path="/gallery" element={<Gallery />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

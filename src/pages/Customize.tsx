@@ -278,7 +278,7 @@ const Customize = () => {
                   ? `url(${selectedMaterial.textureImage})`
                   : undefined,
 
-                backgroundSize: "250px",
+                backgroundSize: "100px",
                 backgroundRepeat: "repeat",
                 backgroundPosition: "center",
 
