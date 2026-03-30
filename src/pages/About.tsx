@@ -44,28 +44,28 @@ const About = () => {
       title: "The Vision Begins",
       description:
         "Chimanlal Suresh Kumar establishes CSK Textiles in the historic Rikabgunj market, bringing a new standard of luxury to Hyderabad.",
-      image: "/public/images/ethos.jpg",
+      image: "/images/ethos.jpg",
     },
     {
       year: "2005",
       title: "A Groom's Sanctuary",
       description:
         "Recognizing the need for unparalleled elegance, we expanded into bespoke wedding and groomwear collections, becoming the city's preferred destination for special occasions.",
-      image: "/public/images/banner.jpg",
+      image: "/images/banner.jpg",
     },
     {
       year: "2015",
       title: "The Executive Standard",
       description:
         "We launched our curated executive suiting line, partnering with international mills to bring world-class fabrics to the modern professional.",
-      image: "/public/images/aboutPreview.jpg",
+      image: "/images/aboutPreview.jpg",
     },
     {
       year: "Today",
       title: "A Timeless Legacy",
       description:
         "With over 25 years of sartorial mastery, we continue to serve a community of discerning gentlemen who value quality, heritage, and the art of fine dressing.",
-      image: "/public/images/services.jpeg",
+      image: "/images/services.png",
     },
   ];
 
@@ -83,7 +83,7 @@ const About = () => {
           {/* Main Background Image */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/public/images/premium-banner.png"
+              src="/images/premium-banner.png"
               alt="Luxury Tailoring"
               className="w-full h-full object-cover"
             />
@@ -184,7 +184,7 @@ const About = () => {
                 <div className="lg:col-span-5">
                   <div className="aspect-[3/4] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-elegant rotate-1 md:rotate-3 max-w-md mx-auto lg:max-w-none">
                     <img
-                      src="/public/images/choose.jpeg"
+                      src="/images/choose.jpeg"
                       alt="Fine Fabrics"
                       className="w-full h-full object-cover grayscale"
                     />
@@ -287,7 +287,7 @@ const About = () => {
         <section className="h-[60vh] relative flex items-center overflow-hidden bg-primary">
           <div className="absolute inset-0 z-0">
             <img
-              src="/public/images/banner.jpg"
+              src="/images/banner.jpg"
               className="w-full h-full object-cover opacity-20 grayscale"
               alt="Heritage"
             />
