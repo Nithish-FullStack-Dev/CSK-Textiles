@@ -85,40 +85,42 @@ const CollectionShirting = () => {
           </div>
         </section>
 
-        <section className="relative z-50 py-8 md:py-12 border-b border-white/10 bg-[#0a0a0a]/95 backdrop-blur-3xl">
-          <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl md:flex justify-around">
-            {/* Top Row: Title & Action */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-5 md:mb-5">
+        <section className="relative z-50 py-6 md:py-10 border-b border-white/10 bg-[#0a0a0a]/95 backdrop-blur-3xl">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              {/* LEFT - Button */}
               <Link
                 to="/customize"
                 state={{ outfit: "Wedding outfit" }}
-                className="w-full sm:w-auto shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-full"
+                className="w-full md:w-auto"
               >
-                <Button className="w-full sm:w-auto rounded-full px-8 h-12 md:h-14 bg-white text-black hover:bg-gray-200 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] group text-xs md:text-sm font-bold tracking-wide">
+                <Button className="w-full md:w-auto rounded-full px-8 h-12 md:h-14 bg-white text-black hover:bg-gray-200 transition-all duration-300 shadow-md group text-xs md:text-sm font-bold tracking-wide">
                   Customize
                   <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-            </div>
 
-            {/* Bottom Row: Filters */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white/[0.03] p-4 rounded-2xl border border-white/10">
-              {/* Left */}
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                  <Filter className="w-4 h-4 text-white/70" />
+              {/* RIGHT - Filter */}
+              <div className="flex items-center justify-between md:justify-end gap-3 w-full md:w-auto bg-white/[0.04] px-4 py-3 rounded-2xl border border-white/10">
+                {/* Label */}
+                <div className="flex items-center gap-2 shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
+                    <Filter className="w-4 h-4 text-white/70" />
+                  </div>
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-medium hidden sm:block">
+                    Refine Fabric
+                  </span>
                 </div>
-                <span className="text-xs uppercase tracking-[0.2em] text-white/60 font-medium">
-                  Refine Fabric
-                </span>
-              </div>
 
-              {/* Right */}
-              <FilterDropdown
-                filters={filters}
-                activeFilter={activeFilter}
-                setActiveFilter={setActiveFilter}
-              />
+                {/* Dropdown */}
+                <div className="min-w-[140px] sm:min-w-[180px]">
+                  <FilterDropdown
+                    filters={filters}
+                    activeFilter={activeFilter}
+                    setActiveFilter={setActiveFilter}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
