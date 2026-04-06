@@ -136,7 +136,7 @@ const ProductDetails = () => {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-muted shadow-2xl">
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-black shadow-2xl flex items-center justify-center">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeImage}
@@ -146,7 +146,7 @@ const ProductDetails = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="w-full h-full object-cover"
+                    className="max-w-full max-h-full object-contain"
                   />
                 </AnimatePresence>
               </div>

@@ -22,10 +22,7 @@ const CollectionWedding = () => {
   const filters = [
     "All",
     "Silk",
-    "Brocade",
     "Velvet",
-    "Jacquard",
-    "Handloom",
     "Embroidered",
     "Textured",
   ];

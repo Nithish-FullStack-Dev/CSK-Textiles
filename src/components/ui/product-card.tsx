@@ -31,7 +31,7 @@ export const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
       tags = [],
       className,
     },
-    ref
+    ref,
   ) => {
     const [hovered, setHovered] = useState(false);
     const shouldReduceMotion = useReducedMotion();
@@ -131,21 +131,21 @@ export const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
           variants={containerVariants}
           className={cn(
             "relative w-full aspect-[3/4] rounded-3xl border border-border/20 text-card-foreground overflow-hidden shadow-xl shadow-black/5 cursor-pointer group backdrop-blur-sm bg-white",
-            className
+            className,
           )}
         >
           {/* Full Cover Image */}
           <motion.img
             src={image}
             alt={name}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-contain"
             variants={imageVariants}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           />
 
           {/* Smooth Blur Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black/80 via-black/20 to-transparent backdrop-blur-[1px]" />
+          <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
           {/* Badges */}
           <div className="absolute top-4 left-4 flex gap-2 z-20">
@@ -178,7 +178,10 @@ export const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
             </motion.p>
 
             {/* Name */}
-            <motion.div variants={itemVariants} className="flex items-center gap-2">
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-2"
+            >
               <motion.h2
                 className="text-2xl font-display font-medium text-white leading-tight"
                 variants={{
@@ -190,7 +193,11 @@ export const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
                 }}
               >
                 {name.split("").map((letter, index) => (
-                  <motion.span key={index} variants={letterVariants} className="inline-block">
+                  <motion.span
+                    key={index}
+                    variants={letterVariants}
+                    className="inline-block"
+                  >
                     {letter === " " ? "\u00A0" : letter}
                   </motion.span>
                 ))}
@@ -202,7 +209,7 @@ export const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
               variants={itemVariants}
               className={cn(
                 "flex items-center justify-between w-full py-3 px-5 rounded-2xl font-medium text-xs transition-all duration-300",
-                "border border-white/20 bg-white/10 text-white backdrop-blur-md group-hover:bg-white group-hover:text-black"
+                "border border-white/20 bg-white/10 text-white backdrop-blur-md group-hover:bg-white group-hover:text-black",
               )}
             >
               <span>Explore Design</span>
@@ -212,5 +219,5 @@ export const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
         </motion.div>
       </Link>
     );
-  }
+  },
 );

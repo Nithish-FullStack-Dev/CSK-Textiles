@@ -6,11 +6,12 @@ import categoryTuxedo from "/images/tuxedo.png";
 import categoryIndoWestern from "/images/indo-western.png";
 import categoryBlazers from "/images/blazers.png";
 import categoryJodhpuri from "/images/jodhpuri.png";
+import categoryTrousers from "/images/trousers.png";
 import categoryDCollection from "/images/designer-collections.jpg";
 import categoryEthnic from "/images/ethnic.jpg";
 import categoryPartyWear from "/images/party-wear.png";
-import categoryVelvet from "/images/designer-collection.jpg";
-import categoryLinen from "/images/linen-wear.jpg";
+import categoryVelvet from "/images/velvet.png";
+import categoryLinen from "/images/linen-wear.png";
 export const categories = [
   {
     id: "suiting",
@@ -88,8 +89,8 @@ export const categories = [
     featured: true,
   },
   {
-    id: "kurta-sets",
-    name: "Kurta Sets",
+    id: "sherwani-sets",
+    name: "Sherwani Sets",
     description: "Traditional and festive kurta materials",
     image: categoryWedding,
     link: "/collections/wedding",
@@ -107,7 +108,7 @@ export const categories = [
     id: "formal-trousers",
     name: "Formal Trousers",
     description: "Perfect fabrics for tailored pants",
-    image: categorySuiting,
+    image: categoryTrousers,
     link: "/collections/suiting",
     featured: true,
   },

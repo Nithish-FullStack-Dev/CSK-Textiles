@@ -20,12 +20,9 @@ const CollectionSuiting = () => {
   }, []);
   const filters = [
     "All",
-    "Wool",
     "Silk",
     "Linen",
     "Cotton",
-    "Plain",
-    "Striped",
     "Textured",
   ];
 

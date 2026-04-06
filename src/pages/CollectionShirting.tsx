@@ -18,16 +18,7 @@ const CollectionShirting = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const filters = [
-    "All",
-    "Cotton",
-    "Linen",
-    "Egyptian Cotton",
-    "Poplin",
-    "Plain",
-    "Striped",
-    "Checkered",
-  ];
+  const filters = ["All", "Cotton", "Linen", "Plain", "Striped", "Checkered"];
 
   const filteredProducts = useMemo(() => {
     return allProducts.filter((p) => {
@@ -50,7 +41,7 @@ const CollectionShirting = () => {
       <Header />
 
       <main className="flex-grow">
-        <section className="relative py-28 md:py-40 overflow-hidden">
+        <section className="relative py-10 md:py-20 overflow-hidden">
           <motion.div
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
@@ -60,7 +51,7 @@ const CollectionShirting = () => {
             <img
               src={shirtingBanner}
               alt="Premium Shirting"
-              className="w-full h-full object-cover object-[center/10%]"
+              className="w-full h-full object-cover "
             />
             <div className="absolute inset-0 bg-black/20" />
           </motion.div>
