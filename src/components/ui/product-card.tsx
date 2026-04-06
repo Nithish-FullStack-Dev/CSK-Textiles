@@ -183,7 +183,7 @@ export const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
               className="flex items-center gap-2"
             >
               <motion.h2
-                className="text-2xl font-display font-medium text-white leading-tight"
+                className="text-xl font-display font-medium text-white leading-tight"
                 variants={{
                   visible: {
                     transition: {
