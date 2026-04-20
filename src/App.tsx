@@ -41,8 +41,17 @@ import AuthProvider, { useAuth } from "./AuthProvider";
 import { Loader2 } from "lucide-react";
 import ProtectedAdminRoute from "./ProtectedAdminRoute";
 import Fallback from "./Fallback";
+import UserManagement from "./pages/UserManagement";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: 1,
+      refetchOnMount: false,
+    },
+  },
+});
 
 function AppRoutes() {
   const location = useLocation();
@@ -51,14 +60,8 @@ function AppRoutes() {
 
   const { isLoading, user } = useAuth();
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen w-full flex items-center justify-center bg-[#fbf9f6]">
-        <Loader2 className="animate-spin" size={48} />
-        <p className="ml-4 text-lg text-orange-700 font-medium">loading...</p>
-      </div>
-    );
-  }
+  if (isLoading) <Fallback />;
+
   return (
     <>
       <ScrollToTop />
@@ -131,6 +134,16 @@ function AppRoutes() {
             <ProtectedAdminRoute>
               <Suspense fallback={<Fallback />}>
                 <AdminCareers />
+              </Suspense>
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin/user-management"
+          element={
+            <ProtectedAdminRoute>
+              <Suspense fallback={<Fallback />}>
+                <UserManagement />
               </Suspense>
             </ProtectedAdminRoute>
           }

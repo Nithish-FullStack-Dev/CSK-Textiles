@@ -18,6 +18,7 @@ export interface User {
   email: string;
   role: "admin" | "editor";
   products?: string[];
+  profileImage?: string;
 }
 
 export const AuthContext = createContext<AuthContextType>({
@@ -90,7 +91,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         },
       );
 
-      return data.user;
+      return data.dbUser as User;
     },
 
     retry: false,

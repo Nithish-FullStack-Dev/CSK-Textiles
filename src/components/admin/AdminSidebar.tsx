@@ -6,6 +6,7 @@ import {
   ChevronLeft,
   Grip,
   Mail,
+  Users,
 } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
@@ -30,6 +31,7 @@ const menuItems = [
   { title: "Fabric Archives", icon: Package, path: "/admin/fabrics" },
   { title: "Enquiries", icon: Mail, path: "/admin/enquiries" },
   { title: "Recruitments", icon: Briefcase, path: "/admin/careers" },
+  { title: "User Management", icon: Users, path: "/admin/user-management" },
 ];
 
 export default function AdminSidebar() {
