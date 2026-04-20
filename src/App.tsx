@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -27,11 +27,20 @@ import TermsPage from "./pages/Terms";
 import PrivacyPage from "./pages/Privacy";
 
 import AdminLogin from "./pages/admin/Login";
-import AdminDashboard from "./pages/admin/Dashboard";
-import AdminProducts from "./pages/admin/Products";
-import AdminEnquiries from "./pages/admin/Enquiries";
-import AdminFabrics from "./pages/admin/Fabrics";
-import AdminCareers from "./pages/admin/Careers";
+const AdminDashboard = lazy(() => import("./pages/admin/Dashboard"));
+const AdminProducts = lazy(() => import("./pages/admin/Products"));
+const AdminEnquiries = lazy(() => import("./pages/admin/Enquiries"));
+const AdminFabrics = lazy(() => import("./pages/admin/Fabrics"));
+const AdminCareers = lazy(() => import("./pages/admin/Careers"));
+// import AdminDashboard from "./pages/admin/Dashboard";
+// import AdminProducts from "./pages/admin/Products";
+// import AdminEnquiries from "./pages/admin/Enquiries";
+// import AdminFabrics from "./pages/admin/Fabrics";
+// import AdminCareers from "./pages/admin/Careers";
+import AuthProvider, { useAuth } from "./AuthProvider";
+import { Loader2 } from "lucide-react";
+import ProtectedAdminRoute from "./ProtectedAdminRoute";
+import Fallback from "./Fallback";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +49,16 @@ function AppRoutes() {
 
   const isAdminRoute = location.pathname.startsWith("/admin");
 
+  const { isLoading, user } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen w-full flex items-center justify-center bg-[#fbf9f6]">
+        <Loader2 className="animate-spin" size={48} />
+        <p className="ml-4 text-lg text-orange-700 font-medium">loading...</p>
+      </div>
+    );
+  }
   return (
     <>
       <ScrollToTop />
@@ -65,11 +84,57 @@ function AppRoutes() {
 
         {/* Admin Routes */}
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/products" element={<AdminProducts />} />
-        <Route path="/admin/enquiries" element={<AdminEnquiries />} />
-        <Route path="/admin/fabrics" element={<AdminFabrics />} />
-        <Route path="/admin/careers" element={<AdminCareers />} />
+
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedAdminRoute>
+              <Suspense fallback={<Fallback />}>
+                <AdminDashboard />
+              </Suspense>
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin/products"
+          element={
+            <ProtectedAdminRoute>
+              <Suspense fallback={<Fallback />}>
+                <AdminProducts />
+              </Suspense>
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin/enquiries"
+          element={
+            <ProtectedAdminRoute>
+              <Suspense fallback={<Fallback />}>
+                <AdminEnquiries />
+              </Suspense>
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin/fabrics"
+          element={
+            <ProtectedAdminRoute>
+              <Suspense fallback={<Fallback />}>
+                <AdminFabrics />
+              </Suspense>
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin/careers"
+          element={
+            <ProtectedAdminRoute>
+              <Suspense fallback={<Fallback />}>
+                <AdminCareers />
+              </Suspense>
+            </ProtectedAdminRoute>
+          }
+        />
 
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
@@ -95,15 +160,16 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-
-        <BrowserRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <AppRoutes />
-        </BrowserRouter>
+        <AuthProvider>
+          <BrowserRouter
+            future={{
+              v7_startTransition: true,
+              v7_relativeSplatPath: true,
+            }}
+          >
+            <AppRoutes />
+          </BrowserRouter>
+        </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
